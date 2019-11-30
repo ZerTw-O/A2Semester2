@@ -1,0 +1,13 @@
+មេរៀនដែលត្រូវរៀន ឆមាសទី II
+
+1/ File Server
+
+2/ DNS Server
+
+3/ DHCP Server
+
+4/ AD Server
+
+5/ Web Server
+
+6/ Mail Server

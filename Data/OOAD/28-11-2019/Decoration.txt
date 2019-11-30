@@ -1,0 +1,87 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DrinkDecoration
+{
+    //7
+    public class WaterMixing : DrinkMixing
+    {
+        public override string GetDescr(double w)
+        {
+            return string.Format("{0}\n -Water({1}, {2:N2}gs)",
+                    d.GetDescr(w), name, weight);
+        }
+        public WaterMixing(AbstractDrink d, string n, double w)
+        { this.d = d; this.name = n; this.weight = w; }
+    }
+
+    //6
+    public class SugarMixing : DrinkMixing
+    {
+        public override string GetDescr(double w)
+        {
+            return string.Format("{0}\n -Sugar({1}, {2:N2}gs)",
+                    d.GetDescr(w), name, weight);
+        }
+        public SugarMixing(AbstractDrink d, string n, double w)
+        { this.d = d; this.name = n; this.weight = w; }
+    }
+
+    //5
+    public class MilkMixing : DrinkMixing
+    {
+        public override string GetDescr(double w)
+        {
+            return string.Format("{0}\n -Milk({1}, {2:N2}gs)",
+                    d.GetDescr(w), name, weight);
+        }
+        public MilkMixing(AbstractDrink d, string n, double w)
+        { this.d = d; this.name = n; this.weight = w; }
+    }
+    //4
+    public class CoffeeMixing : DrinkMixing
+    {
+        public override string GetDescr(double w)
+        {
+            return string.Format("{0}\n -Coffee({1}, {2:N2}gs)",
+                    d.GetDescr(w), name, weight);
+        }
+        public CoffeeMixing(AbstractDrink d, string n, double w)
+        { this.d = d; this.name = n; this.weight = w; }
+    }
+    //3
+    public abstract class DrinkMixing : AbstractDrink
+    {
+        protected AbstractDrink d;
+        protected double weight;
+        public override double TotalWeight
+        {
+            get { return this.weight + d.TotalWeight; }
+        }
+    }
+
+    //2
+    public class Drink:AbstractDrink 
+    {
+        public override double TotalWeight
+        {   get { return 0.0; }     }
+        public override string GetDescr(double w)
+        {
+            return string.Format("{0}->{1:N2}gs", 
+                   this.name, w);
+        }
+        public Drink(string n) { this.name = n; }
+    }
+    //1
+    public abstract class AbstractDrink
+    {
+        protected string name;
+        public abstract double TotalWeight { get; }
+        public abstract string GetDescr(double w);
+        public string Descr 
+        { get { return this.GetDescr(this.TotalWeight); } }
+    }
+}

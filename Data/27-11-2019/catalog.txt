@@ -1,0 +1,24 @@
+/* XML File */
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../style/catalog.css"?>
+<!DOCTYPE catalog[
+	<!ELEMENT catalog (productName, manufacturer, description, price+, productItems)>
+	<!ATTLIST price currency CDATA #REQUIRED>
+	<!ELEMENT productName (#PCDATA)>
+	<!ELEMENT manufacturer (#PCDATA)>
+	<!ELEMENT description (#PCDATA)>
+	<!ELEMENT price (#PCDATA)>
+	<!ELEMENT productName (#PCDATA)>
+]>
+
+<catalog>
+	<productName>Dog Shirt Gift Basket</productName>
+	<manufacturer>SJB Pet Boutique</manufacturer>
+	<description>Something for every day of the week</description>
+	<price currency="USD">$35.99</price>
+	<price currency="EUR">€26.79</price>
+	<productItems>1200, 1201, 1202, 1203, 1204</productItems>
+</catalog>

@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace DrinkDecoration
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+            AbstractDrink d = null;
+            //d = new Drink("Special");
+            //d=  new CoffeeMixing(d, "Arabica", 2);
+            //d = new MilkMixing(d, "MyBoy", 6);
+            //d = new SugarMixing(d, "Metapho", 3);
+            //d = new WaterMixing(d, "Eviant", 10);
+            ////d = new CoffeeMixing(d, "Robosta", 4);
+
+            d=new WaterMixing(
+                  new SugarMixing(
+                      new MilkMixing(
+                          new CoffeeMixing(
+                              new Drink("Special")
+                              ,"Arabica",2),
+                                 "MyBoy", 6),
+                                   "Metapho", 3),
+                                     "Eviant", 10);
+            MessageBox.Show(d.Descr);
+        }
+    }
+}
